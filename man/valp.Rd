@@ -28,3 +28,9 @@ el contraste de hipótesis genera conclusiones erradas.
 \details{
 Detalles...
 }
+\examples{
+valp(n = 100, gp = 5, cp = 10, nc = 0.90)
+valp(n = 100, gp = 10, cp = 10, nc = 0.95)
+valp(n = 100, gp = 15, cp = 10, nc = 0.99)
+
+}

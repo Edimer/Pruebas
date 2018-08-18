@@ -15,6 +15,11 @@
 #' @return un vector con los valores p obtenidos para las comparaciones
 #' establecidas.
 #' 
+#' @examples
+#' valp(n = 100, gp = 5, cp = 10, nc = 0.90)
+#' valp(n = 100, gp = 10, cp = 10, nc = 0.95)
+#' valp(n = 100, gp = 15, cp = 10, nc = 0.99)
+#' 
 #' @export
 valp <- function(n = 1000, gp = 20,  cp = 100, nc = 0.95){
   pob = rnorm(n = n)
@@ -26,27 +31,4 @@ valp <- function(n = 1000, gp = 20,  cp = 100, nc = 0.95){
                    mu = 0)$p.value
   }
   return(vp)
-}
-
-#' Gráfico de valores p en t.test
-#' 
-#' Gráfico de valores p obtenido con valp.
-#' 
-#' @param x vector de valores p con la función \code{\link{valp}}
-#'
-#' @export
-#' @import ggplot2
-plot.valp <- function(x) {
-  df = data.frame(index = c(1:length(x)), valorP = x)
-  g = ggplot(data = df, aes(x = index, y = valorP)) +
-    geom_point() +
-    geom_hline(yintercept = 0.01, lwd = 0.5, color = "firebrick", lty = 2) +
-    geom_hline(yintercept = 0.05, lwd = 0.5, color = "dodgerblue4", lty = 2) +
-    geom_hline(yintercept = 0.10, lwd = 0.5, color = "green4", lty = 2) +
-    labs(x = "", y = "Valor p",
-         title = paste0("Valores p para ", length(x), " comparaciones",
-                        sep = ""),
-         caption = "Línea roja: 0.01\nLínea azul: 0.05\nLínea verde: 0.10") +
-    theme_linedraw()
-  return(g)
 }
