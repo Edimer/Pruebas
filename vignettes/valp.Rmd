@@ -1,0 +1,24 @@
+---
+title: "Biblioteca de pruebas"
+author: "Edimer David Jaramillo"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Biblioteca de pruebas}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Pruebas
+
+## Descripción
+
+Esta función genera una población de números aleatorios con distribución normal y con base en ella se realizan múltiples muestreos; luego se emplea el t.test para obtener el número de veces que el contraste de hipótesis genera conclusiones erradas.
+
+## Uso
+
+```{r, eval=FALSE}
+library(Pruebas)
+valp(n = 100, gp = 50, cp = 2, nc = 0.95)
+```
+
