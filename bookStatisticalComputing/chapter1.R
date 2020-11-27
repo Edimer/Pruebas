@@ -1,5 +1,6 @@
 # In this script i go to write the examples from book:
 # Statistical Computing with R (second edition)
+# Chapter 1
 
 # Formula
 formula0 <- lm(rock$peri ~ 0) # null model
